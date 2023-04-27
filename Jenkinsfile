@@ -7,7 +7,7 @@ pipeline {
         stage('version increment') {
             steps {
                 script {
-                echo "inncrementing app version"
+                echo 'incrementing app version'
                  mvn build-helper:parse-version versions:set \
                      -DnewVersion=\\${parsedVersion.majorVersion}.\\${parsedVersion.minorVersion}.\\${parsedVersion.nextIncrementalVersion} \
                      versions:commit
@@ -20,7 +20,7 @@ pipeline {
         stage("build jar") {
             steps {
                 script {
-                    echo "building jar file"
+                    echo 'building jar file'
                     sh 'mvn clean package'
                 }
             }
@@ -28,7 +28,7 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                   echo "building the docker image"
+                   echo 'building the docker image'
                     withCredentials([usernamePassword(credentialsId:'dockerhub-credentials',username:'$USER',password:'$PASS')])
                     {
                     sh "docker build -t saurabh277/newApp:$IMAGE_NAME ."
