@@ -21,3 +21,4 @@ In this branch we are using automatic applicationn versioning
 <h2>For doing version update in pom.xml file -here we are doing patch update</h2>
 mvn build-helper:parse-version versions:set -DnewVersion=${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion} versions:commit
 
+<img width="928" alt="8" src="https://user-images.githubusercontent.com/59279947/234857269-bde4693d-bc98-43af-ad7a-4631cf93be37.png">
