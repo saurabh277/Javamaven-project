@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 In this branch we are using automatic applicationn versioning
 =======
 <h1>Stage:Increment Version</h1>
