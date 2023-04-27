@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-    maven :'my-maven'
+    maven 'my-maven'
     }
     stages {
         stage('version increment') {
