@@ -29,12 +29,11 @@ pipeline {
         stage("build image") {
             steps {
                 script {
-                   echo 'building the docker image'
-                    withCredentials([usernamePassword(credentialsId:'dockerhub-credentials',username:'$USER',password:'$PASS')])
-                    {
-                    sh "docker build -t saurabh277/newApp:$IMAGE_NAME ."
-                    sh "echo $PASS | docker login -u {$USER} -password-stdin"
-                    sh "docker push saurabh277/newApp:$IMAGE_NAME"
+                    echo "building the docker image..."
+                    withCredentials([usernamePassword(credentialsId: 'dockerhub-credential', passwordVariable: 'PASS', usernameVariable: 'USER')]) {
+                        sh "docker build -t saurabh277/version-app:${IMAGE_NAME} ."
+                        sh "echo $PASS | docker login -u $USER --password-stdin"
+                        sh "docker push saurabh277/version-app:${IMAGE_NAME}"
                     }
 
                 }
