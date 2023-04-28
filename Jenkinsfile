@@ -57,7 +57,7 @@ pipeline {
     sh "echo \"https://github.com:${GITHUB_TOKEN}@github.com\" > ~/.git-credentials"
     sh 'git add .'
     sh 'git commit -m "ci :version bump"'
-    sh "git push origin HEAD:version -u ${GITHUB_TOKEN}"
+    sh "git push origin HEAD:version "
                 }
                 }
              }
