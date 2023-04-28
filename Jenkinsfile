@@ -53,6 +53,8 @@ pipeline {
     sh 'git config user.email "jenkinsuser@gmail.com"'
     sh 'git config user.name "jenkins"'
     sh 'git remote set-url origin https://github.com/saurabh277/Javamaven-project.git'
+    sh "git config --global credential.helper 'store --file ~/.git-credentials'"
+    sh "echo \"https://github.com:${GITHUB_TOKEN}@github.com\" > ~/.git-credentials"
     sh 'git add .'
     sh 'git commit -m "ci :version bump"'
     sh "git push origin HEAD:version -u ${GITHUB_TOKEN}"
