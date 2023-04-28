@@ -1,18 +1,24 @@
-<<<<<<< HEAD
-In this branch we are using shared jenkins library
+
+In this branch we are using automatic applicationn versioning
 =======
-This project is related to multi branch pipeline where we will be using the jenkins shared library 
+<h1>Stage:Increment Version</h1>
+<h2>Increment patch version in pom.xml</h2>
+<h2>Read new version from pom.xml</h2>
+<h2>put together a new Docker img tag</h2>
+<h2>Assign it ot env variable</h2>
 
-<h2>Multi branch pipeline</h2>
-<img width="946" alt="Screenshot 2023-04-26 160620" src="https://user-images.githubusercontent.com/59279947/234550902-33c566ce-004e-4ec8-9397-c37562ecea13.png">
 
-<h2>For this branch used jenkins shared library</h2>
-<img width="947" alt="2" src="https://user-images.githubusercontent.com/59279947/234550920-5bdbb395-256c-437f-9a0c-4d2992c72f9d.png">
+<h1>Build App</h1>
+<h2>Clean target folder</h2>
+<h2>Pakage jar files</h2>
 
-<h2>This is how we configure for multi branch library and add discover branch option(here we have used Regular expression)</h2>
-<img width="916" alt="7" src="https://user-images.githubusercontent.com/59279947/234553948-dc960a39-c70a-4dd1-93d8-ebf528f16979.png">
+<h1>Build Docker Image</h1>
+<h2>Build docker image from docker file</h2>
+<h2>Tag image with Repo-url and name</h2>
+<h2>Login to Docker repo</h2>
+<h2>Push to docker repo</h2>
 
-<h2>For locally doing version update in pom.xml file -here we are doing patch update</h2>
+<h2>For doing version update in pom.xml file -here we are doing patch update</h2>
 mvn build-helper:parse-version versions:set -DnewVersion=${parsedVersion.majorVersion}.${parsedVersion.minorVersion}.${parsedVersion.nextIncrementalVersion} versions:commit
 
->>>>>>> 201cf8a4476e51b0bfa812dc2e2a58c1c9663774
+<img width="928" alt="8" src="https://user-images.githubusercontent.com/59279947/234857269-bde4693d-bc98-43af-ad7a-4631cf93be37.png">
