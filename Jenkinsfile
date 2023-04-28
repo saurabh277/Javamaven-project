@@ -46,5 +46,20 @@ pipeline {
                 }
             }
         }
+        stage("commit version update") {
+            steps {
+                script {
+                withCredentials([usernamePassword(credentialsId:github-credential,username:'$USER',password:'$PASS')])
+                {
+                sh 'git config user.email "jenkinsuser@gmail.com"'
+                sh 'git conffig user.name "jenkins"'
+                sh "git remote set-url origin https://${USER}:${PASS}@github.com/saurabh277/Javamaven-project.git"
+                sh 'git add .'
+                sh 'git commit -m "ci :version bump"'
+                sh 'git push origin HEAD:version'
+                }
+                }
+             }
+        }
     }
 }
